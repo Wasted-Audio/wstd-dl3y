@@ -148,12 +148,13 @@ protected:
         style.WindowTitleAlign = ImVec2(0.5f, 0.5f);
 
 
-        style.Colors[ImGuiCol_TitleBgActive] = (ImVec4)ImColor::HSV(3.31f / 3.6f, 0.64f, 0.40f);
-        style.Colors[ImGuiCol_WindowBg] = (ImVec4)ImColor::HSV(3.31f / 3.6f, 0.64f, 0.10f);
+        style.Colors[ImGuiCol_TitleBgActive] = (ImVec4)WstdTitleBgActive;
+        style.Colors[ImGuiCol_WindowBg] = (ImVec4)WstdWindowBg;
 
         ImGuiIO& io(ImGui::GetIO());
         ImFont* defaultFont = ImGui::GetFont();
         ImFont* titleBarFont = io.Fonts->Fonts[2];
+        ImFont* smallFont = io.Fonts->Fonts[3];
 
         auto HighColorActive     = ColorBright(Blue,   fhigh);
         auto HighColorHovered    = ColorBright(BlueBr, fhigh);
@@ -171,8 +172,13 @@ protected:
         auto LowMixActive        = ColorMix(LowColorActive,   Yellow,   flow,  flow_mix);
         auto LowMixHovered       = ColorMix(LowColorHovered,  YellowBr, flow,  flow_mix);
 
-        const float hundred = 100 * getScaleFactor();
-        const float seventy = 70 * getScaleFactor();
+        // Sizes
+        auto scaleFactor = getScaleFactor();
+        const float hundred      = 100 * scaleFactor;
+        const float seventy      = 70 * scaleFactor;
+        const float knobWidth    = 85 * scaleFactor;
+        const float toggleWidth  = 20 * scaleFactor;
+        const float eqText       = 45 * scaleFactor;
 
 
         ImGui::PushFont(titleBarFont);
@@ -185,23 +191,21 @@ protected:
             auto ImGuiKnob_FlagsDB = ImGuiKnob_Flags + ImGuiKnobFlags_dB;
             auto ImGuiKnob_FlagsLog = ImGuiKnob_Flags + ImGuiKnobFlags_Logarithmic;
 
+            // EQ Text
             ImGui::BeginGroup();
             {
-                ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.85f, 0.85f, 0.85f, 0.85f));
-                ImGui::Dummy(ImVec2(0.0f, 38.0f) * getScaleFactor());
-                ImGui::Dummy(ImVec2(14.0f, 0.0f) * getScaleFactor()); ImGui::SameLine();
-                ImGui::Text("High");
-                ImGui::Dummy(ImVec2(0.0f, 80.0f) * getScaleFactor());
-                ImGui::Dummy(ImVec2(17.0f, 0.0f) * getScaleFactor()); ImGui::SameLine();
-                ImGui::Text("Mid");
-                ImGui::Dummy(ImVec2(0.0f, 60.0f) * getScaleFactor());
-                ImGui::Dummy(ImVec2(17.0f, 0.0f) * getScaleFactor()); ImGui::SameLine();
-                ImGui::Text("Mid");
-                ImGui::Dummy(ImVec2(14.0f, 0.0f) * getScaleFactor()); ImGui::SameLine();
-                ImGui::Text("Freq");
-                ImGui::Dummy(ImVec2(0.0f, 50.0f) * getScaleFactor());
-                ImGui::Dummy(ImVec2(17.0f, 0.0f) * getScaleFactor()); ImGui::SameLine();
-                ImGui::Text("Low");
+                ImGui::PushStyleColor(ImGuiCol_Text, TextClr);
+                ImGui::Dummy(ImVec2(0.0f, 38.0f) * scaleFactor);
+                CenterTextX("High", eqText);
+                ImGui::Dummy(ImVec2(0.0f, 80.0f) * scaleFactor);
+                CenterTextX("Mid", eqText);
+                ImGui::Dummy(ImVec2(0.0f, 60.0f) * scaleFactor);
+                ImGui::PushFont(smallFont);
+                CenterTextX("Mid", eqText);
+                CenterTextX("Freq", eqText);
+                ImGui::PushFont(defaultFont);
+                ImGui::Dummy(ImVec2(0.0f, 60.0f) * scaleFactor);
+                CenterTextX("Low", eqText);
                 ImGui::PopStyleColor();
             }
             ImGui::EndGroup();
