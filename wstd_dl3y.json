@@ -8,11 +8,58 @@
         "enable_ui": true,
         "enable_modgui": true,
         "ui_size": {
-            "width": 676,
-            "height": 454
+            "width": 707,
+            "height": 444
         },
         "midi_input": 0,
         "midi_output": 0,
+        "enumerators": {
+            "High_TimeSync": [
+                "×6",
+                "×5",
+                "×4",
+                "×3",
+                "×2",
+                "×1.5",
+                "×1",
+                "÷1.5",
+                "÷2",
+                "÷3",
+                "÷4",
+                "÷5",
+                "÷6"
+            ],
+            "Mid_TimeSync": [
+                "×6",
+                "×5",
+                "×4",
+                "×3",
+                "×2",
+                "×1.5",
+                "×1",
+                "÷1.5",
+                "÷2",
+                "÷3",
+                "÷4",
+                "÷5",
+                "÷6"
+            ],
+            "Low_TimeSync": [
+                "×6",
+                "×5",
+                "×4",
+                "×3",
+                "×2",
+                "×1.5",
+                "×1",
+                "÷1.5",
+                "÷2",
+                "÷3",
+                "÷4",
+                "÷5",
+                "÷6"
+            ]
+        },
         "version": "0, 2, 0",
         "license": "GPL-3.0-or-later",
         "homepage": "https://wasted.audio/software/wstd_dl3y",
