@@ -60,7 +60,7 @@
                 "÷6"
             ]
         },
-        "version": "0, 2, 0",
+        "version": "1, 0, 0",
         "license": "GPL-3.0-or-later",
         "homepage": "https://wasted.audio/software/wstd_dl3y",
         "plugin_uri": "https://wasted.audio/software/wstd_dl3y",
@@ -69,10 +69,9 @@
             "lv2_sep",
             "vst2",
             "vst3",
-            "clap",
-            "jack"
+            "clap"
         ],
-        "lv2_info": "lv2:DolayPlugin",
+        "lv2_info": "lv2:DelayPlugin",
         "vst3_info": "Fx|Modulation|Stereo",
         "clap_info": [
             "audio-effect",
