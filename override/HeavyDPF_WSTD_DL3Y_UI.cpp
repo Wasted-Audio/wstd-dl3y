@@ -281,7 +281,7 @@ protected:
                 ImGui::PushFont(smallFont);
                 CenterTextX("Mid", eqText);
                 CenterTextX("Freq", eqText);
-                ImGui::PushFont(defaultFont);
+                ImGui::PopFont();
                 ImGui::Dummy(ImVec2(0.0f, 60.0f) * scaleFactor);
                 CenterTextX("Low", eqText);
                 ImGui::PopStyleColor();
