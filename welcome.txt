@@ -1,0 +1,9 @@
+@name@
+
+The sum is greater than the parts.
+
+This effect plugin is a combination of our 3Q and DLAY plugins for some triple band delaying action.
+
+Just like 3Q the mid frequency can be adjusted and each band can be deactivated by setting the amount to full left. Just like DLAY the time range goes from 50 up to 5000ms and you can sync each band individually to your DAW transport.
+
+Like all our other software this plugin is without DRM and Opensource.
